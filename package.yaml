@@ -1,0 +1,54 @@
+name:                thirm
+version:             2018.9.17
+github:              "magicloud/thirm"
+license:             BSD3
+author:              "Magicloud"
+maintainer:          "magiclouds@gmail.com"
+copyright:           "None"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            None
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/magicloud/thirm#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- base-unicode-symbols
+- gi-gtk
+- gi-gdk
+- gi-gio
+- gi-vte
+
+library:
+  source-dirs: src
+
+executables:
+  thirm-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    - -Wall
+    dependencies:
+    - thirm
+
+tests:
+  thirm-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - thirm
